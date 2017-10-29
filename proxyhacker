@@ -1,0 +1,9 @@
+#!/bin/sh
+lynx https://free-proxy-list.net/ -dump > proxylist2.txt
+awk '($1+0)>1 && ($1+0)<9999' proxylist2.txt > proxyfinal.txt 
+sed '/30-day/d' proxyfinal.txt > proxyfinal2.txt 
+sed '\~//~d' proxyfinal2.txt > proxyfinal3.txt
+sed '/MONTHS/d' proxyfinal3.txt > proxyfinal4.txt
+sed '/:/d' proxyfinal4.txt > p5.txt
+awk '{print $1, $2; }' p5.txt >> proxylist.txt
+rm proxylist2.txt proxyfinal* p5.txt
