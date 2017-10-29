@@ -1,4 +1,6 @@
 #!/bin/sh
+mkdir ~/proxyscraper
+cd ~/proxyscraper
 lynx https://free-proxy-list.net/ -dump > proxylist2.txt
 awk '($1+0)>1 && ($1+0)<9999' proxylist2.txt > proxyfinal.txt 
 sed '/30-day/d' proxyfinal.txt > proxyfinal2.txt 
